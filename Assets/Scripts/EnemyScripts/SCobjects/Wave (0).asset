@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1232b717b1aca464aadf25487f32ca06, type: 3}
+  m_Name: Wave (0)
+  m_EditorClassIdentifier: 
+  enemyGameObjects:
+  - {fileID: 3494323166202425468, guid: b85ba825641e941488edf664873a354f, type: 3}
+  pathPrefab: {fileID: 2398814785167084004, guid: af58ba51bdcac484f83b41e0f9313e4a, type: 3}
+  wayPoints:
+  - {fileID: 8278481066826259471, guid: af58ba51bdcac484f83b41e0f9313e4a, type: 3}
+  - {fileID: 3398975427874598506, guid: af58ba51bdcac484f83b41e0f9313e4a, type: 3}
+  - {fileID: 8278481066826259471, guid: af58ba51bdcac484f83b41e0f9313e4a, type: 3}
+  - {fileID: 3398975427874598506, guid: af58ba51bdcac484f83b41e0f9313e4a, type: 3}
+  listIndexLimitaion: 3
+  evemyMoveSpeed: 2
+  timeBetweenEnemySpwans: 30
+  spwanTimeVariance: 1
+  minimumSpwanTime: 5
