@@ -132,37 +132,19 @@ MonoBehaviour:
   enemySpeedToThePoint: 0.004
   waypointsStaticLoctation:
   - {fileID: 4218238152014055665, guid: 19b11037127c2e64b98441a807fbad1a, type: 3}
-  - {fileID: 8383082633359995161, guid: a018e61833d130d4696027ba4f5f963b, type: 3}
-  - {fileID: 2893737369759111960, guid: 18668f6e7ba31c44dba766430c72ef1b, type: 3}
+  - {fileID: 1267103608179630097, guid: 64e19caa4c2dd3a49881a9720509ce15, type: 3}
+  - {fileID: 5094989169272746491, guid: 3ad8825f6dc7a6a4c9e0049f78999e0e, type: 3}
   - {fileID: 1783695391160732476, guid: 352c8bfbe546db44db41dcaef3a7265a, type: 3}
   - {fileID: 2937223738677970439, guid: 52b1247080c98d944b53c411c23f674b, type: 3}
   - {fileID: 2682012209494014576, guid: 1c5f96574aac5a64496ceae93e2ba3bc, type: 3}
   - {fileID: 2828301648113315163, guid: e6c8543c93b6ed8459600753d59b1234, type: 3}
-  - {fileID: 4840258384454571240, guid: 03da71041a0adea44984a92f69200fff, type: 3}
-  - {fileID: 4782712286514820827, guid: 8d808dbb9d9208949be5bdb67fac8d97, type: 3}
   - {fileID: 50082859205939098, guid: e7d4cb3cc7030ba4da4dcb4d3491483b, type: 3}
-  - {fileID: 6769657526814170313, guid: eff6fd1669d209548a354c8c2452cd81, type: 3}
-  - {fileID: 8709760233808641006, guid: d487dc8e1adbe634799ce607024ed672, type: 3}
-  - {fileID: 142519555959098562, guid: 2472babd6e205904297bea09aa71d65a, type: 3}
-  - {fileID: 7246033973155290640, guid: 27e8ab305c8167c458a85fba20165299, type: 3}
-  - {fileID: 7847938760715714369, guid: 239e50757429593499595ca6ab053d58, type: 3}
-  - {fileID: 4505047968676597091, guid: 87157de093e54004ca172212127f20b3, type: 3}
   - {fileID: 6703409893060269694, guid: 6f5b546312cb3274abc81868a9d69351, type: 3}
-  - {fileID: 3215234326890061483, guid: 3d164fb290ae38245948395c8edab139, type: 3}
   - {fileID: 1510799181774068938, guid: 6608c0ef950a02742a54de567a660996, type: 3}
-  - {fileID: 1693268303581717987, guid: aebd41b0299dde94bb20aba0cf8a3388, type: 3}
-  - {fileID: 7220803757785997004, guid: de9675ab788402e4fb8c79ab8435f20e, type: 3}
   - {fileID: 7844632388231376110, guid: c6debcfa6fe32f34da7c6418a08d49d6, type: 3}
   - {fileID: 9088163209215328080, guid: 95b844b70ba5ccd47b4bb7ba1398c19b, type: 3}
   - {fileID: 5236969850843218386, guid: cd16da1144fd68f46b11f2f013bb9175, type: 3}
-  - {fileID: 94922545939129203, guid: 3d33fc87fc756724a9eda95a447f072b, type: 3}
-  - {fileID: 8936964048089727372, guid: 2f883d3d78ea86643a92c91b13a23f04, type: 3}
-  - {fileID: 1267103608179630097, guid: 64e19caa4c2dd3a49881a9720509ce15, type: 3}
-  - {fileID: 2325348971916425962, guid: 06c7bb0356f457a40a011b1c06632f55, type: 3}
-  - {fileID: 4537717886998877528, guid: 2245bfaa9b58aa140834ece6882e824b, type: 3}
-  - {fileID: 5094989169272746491, guid: 3ad8825f6dc7a6a4c9e0049f78999e0e, type: 3}
-  - {fileID: 8178890797228337010, guid: a3f86f338fe81ab46af7a5d429ecac4b, type: 3}
-  - {fileID: 1871049671527019733, guid: 7b5137044c9b8b0499c027460652188b, type: 3}
+  - {fileID: 7220803757785997004, guid: de9675ab788402e4fb8c79ab8435f20e, type: 3}
   randompoint: 0
 --- !u!114 &4296812636817296057
 MonoBehaviour:
@@ -176,7 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ebf98bdc7d22c46bfed634e3649238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 30
+  health: 120
+  OnEnemyDeathAddScore: 10
+  earnGold: 1
+  particlesVFX: {fileID: 0}
+  scoreManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
+  playerBoxCollider2D: {fileID: 0}
+  heartOne: {fileID: 0}
+  heartTwo: {fileID: 0}
+  heartThree: {fileID: 0}
+  heartFour: {fileID: 0}
 --- !u!114 &7061260120655774529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +198,10 @@ MonoBehaviour:
   playerProjectilePrefab: {fileID: 283085120605173543, guid: 058a3c1f78fb6844dbdf17dd2009af6b, type: 3}
   prjectileSpeed: 10
   projectileLifeTime: 5
-  firingRate: 2
+  baseFiringRate: 0.2
   useAI: 1
+  firingRateVariance: 0
+  miniumFiringRate: 0.1
   isFiring: 0
 --- !u!1 &2022554211781320030
 GameObject:

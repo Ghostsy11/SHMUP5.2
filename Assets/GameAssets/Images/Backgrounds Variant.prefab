@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4858090375074950, guid: 5a213a4dde83c404f8856922c5fc08ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199429801109370770, guid: 5a213a4dde83c404f8856922c5fc08ff, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1

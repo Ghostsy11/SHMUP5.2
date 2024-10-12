@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             audioManager.PlayRandomExplosionAudio();
-            particlesVFX.PlayARandomParticleEffectAndAudioSFX(collision.transform);
+            particlesVFX.PlayARandomParticleEffect(collision.transform);
             Destroy(collision.gameObject);
             Destroy(gameObject);
 

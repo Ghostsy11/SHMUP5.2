@@ -11,18 +11,26 @@ public class WaveEnemySpwner : MonoBehaviour
     [Header("Returing ref from PathFinder Script")]
     WaveConfigSO currentWave;
 
+    [Header("Random Values To spwan at")]
+    [SerializeField] Vector3 randomPosInit;
+
     [Header("Time Between Waves Handler")]
     [SerializeField] float timeBetweenWaves = 1f;
     [SerializeField] float timeVariance = 0.5f;
     [SerializeField] float minimumSpwanTime = 0.2f;
 
+
     public bool enemyWaveIsLooping;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
+
         StartCoroutine(SpwanEnemies());
+
     }
+
 
     public WaveConfigSO GetCurrentWaveSO()
     {
@@ -50,15 +58,25 @@ public class WaveEnemySpwner : MonoBehaviour
                 currentWave = wave;
                 for (int i = 0; i < currentWave.GetGameObjCount(); i++)
                 {
-
-                    Instantiate(currentWave.GetEnemyPrefabs(i), currentWave.GetStartingWayPoint().position, Quaternion.identity, transform);
+                    GetRandomPos();
+                    Instantiate(currentWave.GetEnemyPrefabs(i), randomPosInit, Quaternion.Euler(0f, 0f, 180), transform);
                     yield return new WaitForSeconds(currentWave.GetRandomSpwanTimeBetweenEachEnemy());
-                    Debug.Log(currentWave.GetRandomSpwanTimeBetweenEachEnemy());
+
 
                 }
             }
             yield return new WaitForSeconds(GetRandomSpwanTimeBetweenEachWave());
         } while (enemyWaveIsLooping);
+    }
+
+    private void GetRandomPos()
+    {
+        var rangeX = Random.Range(0, 7f);
+        var rangeMinX = Random.Range(0, -7f);
+        var rangeY = Random.Range(0, 8f);
+
+        randomPosInit = new Vector3(Random.Range(rangeMinX, rangeX), rangeY, 0);
+
     }
 
 }

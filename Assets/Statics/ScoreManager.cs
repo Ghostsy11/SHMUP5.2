@@ -45,21 +45,21 @@ public class ScoreManager : MonoBehaviour
     {
         score += value;
         Mathf.Clamp(score, 0, int.MaxValue);
-        Debug.Log(score);
+        // Debug.Log(score);
     }
 
     public void AddGold(int value)
     {
         gold += value;
         Mathf.Clamp(score, 0, int.MaxValue);
-        Debug.Log(score);
+        //Debug.Log(score);
     }
 
     public void RemoveGold(int value)
     {
         gold += value;
         Mathf.Clamp(score, 0, int.MaxValue);
-        Debug.Log(score);
+        //Debug.Log(score);
     }
 
     public int GetScore()

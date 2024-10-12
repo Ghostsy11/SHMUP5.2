@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShipHealth : MonoBehaviour
 {
@@ -25,11 +24,16 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] BoxCollider2D playerBoxCollider2D;
 
-    [Header("Player Health Status")]
+    [Header("Player Health Status after upgrade")]
     [SerializeField] GameObject heartOne;
     [SerializeField] GameObject heartTwo;
     [SerializeField] GameObject heartThree;
     [SerializeField] GameObject heartFour;
+
+    [Header("Main Health")]
+    [SerializeField] GameObject heartOne1;
+    [SerializeField] GameObject heartTwo2;
+    [SerializeField] GameObject heartThree3;
     private void Awake()
     {
         particlesVFX = FindObjectOfType<ParticlesVFX>();
@@ -40,7 +44,7 @@ public class ShipHealth : MonoBehaviour
 
     private void Update()
     {
-
+        PlayerNormalHealth();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -84,9 +88,40 @@ public class ShipHealth : MonoBehaviour
             player.enabled = false;
             playerInpt.enabled = false;
 
+            StartCoroutine(LoadGameOverScene());
             //Time.timeScale = 0;
             //Display UI
         }
+    }
+
+    private void PlayerNormalHealth()
+    {
+        if (health >= 90 && gameObject.tag == "Player")
+        {
+
+            heartOne1.SetActive(true);
+            heartTwo2.SetActive(true);
+            heartThree3.SetActive(true);
+        }
+        else if (health == 60 && gameObject.tag == "Player")
+        {
+            heartOne1.SetActive(true);
+            heartTwo2.SetActive(true);
+            heartThree3.SetActive(false);
+        }
+        else if (health == 30 && gameObject.tag == "Player")
+        {
+            heartOne1.SetActive(true);
+            heartTwo2.SetActive(false);
+            heartThree3.SetActive(false);
+        }
+        else if (health <= 0 && gameObject.tag == "Player")
+        {
+            heartOne1.SetActive(false);
+            heartTwo2.SetActive(false);
+            heartThree3.SetActive(false);
+        }
+
     }
 
     //Upgrade
@@ -106,6 +141,14 @@ public class ShipHealth : MonoBehaviour
             heartThree.SetActive(false);
             heartFour.SetActive(false);
         }
+    }
+
+    private IEnumerator LoadGameOverScene()
+    {
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene(3);
+        StopCoroutine(LoadGameOverScene());
+
     }
 
 }

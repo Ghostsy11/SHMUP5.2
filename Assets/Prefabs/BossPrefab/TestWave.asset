@@ -25,6 +25,6 @@ MonoBehaviour:
   - {fileID: 850181686629366350, guid: 11e38918792184941b4f0095e6844054, type: 3}
   listIndexLimitaion: 3
   evemyMoveSpeed: 4
-  timeBetweenEnemySpwans: 360
-  spwanTimeVariance: 60
-  minimumSpwanTime: 300
+  timeBetweenEnemySpwans: 3
+  spwanTimeVariance: 1
+  minimumSpwanTime: 2

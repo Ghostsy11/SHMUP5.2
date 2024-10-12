@@ -21,6 +21,6 @@ MonoBehaviour:
   wayPoints: []
   listIndexLimitaion: 3
   evemyMoveSpeed: 12
-  timeBetweenEnemySpwans: 240
-  spwanTimeVariance: 60
-  minimumSpwanTime: 300
+  timeBetweenEnemySpwans: 3
+  spwanTimeVariance: 1
+  minimumSpwanTime: 2

@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 3565688921167078253, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: waveConfigSO
       value: 
-      objectReference: {fileID: 11400000, guid: 8720011e4de1cd543be9a265b710f98a, type: 2}
+      objectReference: {fileID: 11400000, guid: 9f8073f796d9e354aa4120904727fc71, type: 2}
     - target: {fileID: 4211883151419878162, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: Health
       value: 240
@@ -63,6 +63,18 @@ PrefabInstance:
     - target: {fileID: 4441328530877079159, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621040019766352639, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: miniumFiringRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621040019766352639, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: firingRateVariance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621040019766352639, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: increaseDifficlity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

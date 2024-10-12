@@ -12,6 +12,12 @@ public class AttackTypeTwo : AttackTypes
     {
         AttackType();
     }
+
+    private void Start()
+    {
+        transform.position = new Vector3(0f, 4.5f, 0f);
+
+    }
     public override void AttackType()
     {
         enemyHealth = 120;
@@ -21,7 +27,7 @@ public class AttackTypeTwo : AttackTypes
 
         if (transform.position.x >= 9)
         {
-            Debug.Log("It passed 9");
+            //Debug.Log("It passed 9");
             transform.position = new Vector3(XaxisReset, transform.position.y, transform.position.z);
 
         }

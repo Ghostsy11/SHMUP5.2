@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] Vector2 playerInput;
 
     [Tooltip("Player Movement Speed")]
-    [SerializeField] float playerSpeed = 5f;
+    public float playerSpeed = 5f;
 
     [Header("Player Screen and player Bounders")]
     [Tooltip("PlayerBounders")]
@@ -23,7 +23,14 @@ public class Player : MonoBehaviour
     Vector2 minimalBounds;
     Vector2 maximalBounds;
 
+    [Tooltip("Player Bounders")]
+    [SerializeField] private float XaxisReset;
+    [SerializeField] private float YaxisReseZ;
+
+    PlayerUpgrades playerUpgrade;
     Shooter shooter;
+    KillAllEnemies killAllEnemiesSkillScript;
+    ShieldUp shieldUpSkillScript;
 
     [SerializeField] GameObject init;
 
@@ -32,6 +39,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         shooter = GetComponent<Shooter>();
+        playerUpgrade = GetComponent<PlayerUpgrades>();
+        killAllEnemiesSkillScript = FindObjectOfType<KillAllEnemies>();
+        shieldUpSkillScript = GetComponent<ShieldUp>();
     }
     private void Start()
     {
@@ -70,7 +80,7 @@ public class Player : MonoBehaviour
         transform.position = newPosition;
 
     }
-
+    //  To Initalize the screen Bounders
     private void InitBounds()
     {
         Camera mainCamera = Camera.main;
@@ -78,12 +88,59 @@ public class Player : MonoBehaviour
         maximalBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
 
+    // To Initalize player Bounders
+
+    public void PlayerBounders()
+    {
+
+    }
+
+    // Inputs
     private void OnFire(InputValue value)
     {
         if (shooter != null)
         {
             shooter.isFiring = value.isPressed;
         }
+
+
     }
 
+    private void OnPlayerFire(InputValue value)
+    {
+        Debug.Log("Space Bot working");
+        if (playerUpgrade != null)
+        {
+            playerUpgrade.isFiring = value.isPressed;
+        }
+    }
+
+    private void OnKillAll(InputValue value)
+    {
+        if (killAllEnemiesSkillScript.readyToKillAll)
+        {
+            StartCoroutine(killAllEnemiesSkillScript.ActivatietSkill());
+            Debug.Log("Rocket to kill enemies has been Activited");
+        }
+        else
+        {
+            Debug.Log("Still loading the skill");
+        }
+    }
+
+    private void OnShieldUp()
+    {
+        if (shieldUpSkillScript.readyToShieldUp)
+        {
+
+            StartCoroutine(shieldUpSkillScript.ActivatietShieldSkill());
+            Debug.Log("Shield Up is activited");
+        }
+        else
+        {
+            Debug.Log("Shield Up is still loading");
+
+        }
+
+    }
 }

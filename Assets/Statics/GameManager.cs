@@ -7,34 +7,33 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    [Header("UI refrences")]
-    [Tooltip("Refrences that are managed via code")]
-    [SerializeField] ScoreManager scoreManager;
 
-    [Tooltip("Refreances managed via inspector")]
-    [SerializeField] TextMeshProUGUI scoreText;
 
-    [Tooltip("Refreances managed via inspector")]
-    [SerializeField] TextMeshProUGUI goldText;
+    [Tooltip("TutorialPanle refrenaces")]
+    [SerializeField] GameObject tutorialPanle;
 
-    private void Start()
+
+    public void OpenTutorialPanel()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
-
-        scoreText.text = scoreManager.GetScore().ToString();
-        goldText.text = scoreManager.GetGold().ToString();
-
+        tutorialPanle.SetActive(true);
+    }
+    public void CloseTutorialPanel()
+    {
+        tutorialPanle.SetActive(false);
+    }
+    public void LoadScene(int sceneIndex)
+    {
+        StaticLoadSceneFunction(sceneIndex);
     }
 
-    private void Update()
+    public void GameOverResetEveryThing()
     {
-        scoreText.text = scoreManager.GetScore().ToString();
-        goldText.text = scoreManager.GetGold().ToString();
+        Debug.Log("Resetting EveryThing");
     }
-
-    public void LoadScene()
+    public void GameOverShowScene()
     {
-        StaticLoadSceneFunction(1);
+        Debug.Log("Moveing to game over scene");
+
     }
 
     public void ControlTutorial()

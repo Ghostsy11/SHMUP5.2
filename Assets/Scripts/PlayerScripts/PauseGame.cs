@@ -10,10 +10,12 @@ public class PauseGame : MonoBehaviour
     private InputAction _MneuOpenCloseInput;
 
     [SerializeField] private bool isPause;
+    [SerializeField] private GameObject pauseMenu;
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         _MneuOpenCloseInput = playerInput.actions["MenuOpenClose"];
+        pauseMenu.SetActive(false);
     }
 
 
@@ -43,11 +45,14 @@ public class PauseGame : MonoBehaviour
     {
         isPause = true;
         Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
     }
     private void UnPause()
     {
         isPause = false;
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
     }
 
 

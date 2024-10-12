@@ -225,7 +225,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ebf98bdc7d22c46bfed634e3649238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 30
+  health: 120
+  OnEnemyDeathAddScore: 10
+  earnGold: 1
+  particlesVFX: {fileID: 0}
+  scoreManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
+  playerBoxCollider2D: {fileID: 0}
+  heartOne: {fileID: 0}
+  heartTwo: {fileID: 0}
+  heartThree: {fileID: 0}
+  heartFour: {fileID: 0}
 --- !u!114 &1933280233666430255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +267,9 @@ MonoBehaviour:
   projectileLifeTime: 5
   baseFiringRate: 0.2
   useAI: 1
-  firingRateVariance: 0
+  firingRateVariance: 0.5
   miniumFiringRate: 1
   isFiring: 0
+  timeHasCollapsed: 0
+  increaseDifficlity: 0
+  time: 0

@@ -27,9 +27,27 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip explosionType3;
     [SerializeField][Range(0f, 1f)] float explosionVolumE3 = 1f;
 
-    [Header("-")]
+    [Header("When Player Active KillAllEnemySkill SFX")]
     [SerializeField] AudioClip explosionType4;
     [SerializeField][Range(0f, 1f)] float explosionVolumE4 = 1f;
+
+    [Header("Shield Up SFX")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip shieldUpAudio;
+    [SerializeField][Range(0f, 1f)] float shieldUpAudiopVolum = 1f;
+
+    [Header("Vatility PickUp SFX")]
+    [SerializeField] AudioClip pickUpAudioSort1;
+    [SerializeField][Range(0f, 1f)] float pickUpVolumP1 = 1f;
+
+
+    [Header("Vatility HealUp SFX")]
+    [SerializeField] AudioClip pickUpAudioSort2;
+    [SerializeField][Range(0f, 1f)] float pickUpVolumP2 = 1f;
+
+    [Header("Vatility Upgrade SFX")]
+    [SerializeField] AudioClip pickUpAudioSort3;
+    [SerializeField][Range(0f, 1f)] float pickUpVolumP3 = 1f;
 
     static AudioManager instance;
 
@@ -60,10 +78,41 @@ public class AudioManager : MonoBehaviour
     {
         PlayClip(explosionType2, explosionVolumE2);
     }
+
     public void OnPlayDeathSFX()
     {
         PlayClip(explosionType3, explosionVolumE3);
     }
+
+    public void OnKillAllSkillActivitet()
+    {
+        PlayClip(explosionType4, explosionVolumE4);
+    }
+
+    public void OnPickUpV()
+    {
+        PlayClip(pickUpAudioSort1, pickUpVolumP1);
+    }
+
+    public void OnHealUpH()
+    {
+        PlayClip(pickUpAudioSort2, pickUpVolumP2);
+    }
+
+    public void OnUpgradeUp()
+    {
+        PlayClip(pickUpAudioSort3, pickUpVolumP3);
+    }
+
+    public void ShieldUp()
+    {
+        if (!audioSource.isPlaying)
+        {
+
+            audioSource.PlayOneShot(shieldUpAudio);
+        }
+    }
+
     private void PlayClip(AudioClip clip, float volume)
     {
         if (clip != null)

@@ -39,7 +39,7 @@ PrefabInstance:
     - target: {fileID: 3357891490772848552, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
       propertyPath: waveConfigSO
       value: 
-      objectReference: {fileID: 11400000, guid: 8720011e4de1cd543be9a265b710f98a, type: 2}
+      objectReference: {fileID: 11400000, guid: 6de8a15edf8b46546823642397a68545, type: 2}
     - target: {fileID: 5352222103096856215, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -99,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 6835908189436617178, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
       propertyPath: m_Color.r
       value: 0.46947503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177274145890048929, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
+      propertyPath: increaseDifficlity
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

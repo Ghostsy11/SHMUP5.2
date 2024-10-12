@@ -14,11 +14,16 @@ public class ParticlesVFX : MonoBehaviour
     [Header("On Player Death")]
     [SerializeField] ParticleSystem particle3;
 
+    [Header("MegaExplosive")]
+    [SerializeField] ParticleSystem particle4;
+
+    [Header("Vaitilty Effect")]
+    [SerializeField] ParticleSystem particle5;
+
     [Header("Random VFX When Bullet hit each other")]
     [SerializeField] ParticleSystem[] particles;
 
-    [Header("Audio Refrences")]
-    [SerializeField] AudioManager audioManager;
+    [Header("Refrences")]
     static ParticlesVFX instance;
 
 
@@ -27,10 +32,6 @@ public class ParticlesVFX : MonoBehaviour
         ManageSingleton();
     }
 
-    private void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
 
     private void ManageSingleton()
     {
@@ -61,6 +62,16 @@ public class ParticlesVFX : MonoBehaviour
     {
         PlayPartilceEffect(particle3, location.gameObject.transform);
     }
+
+    public void KillAllEnemyExplosivs(Transform location)
+    {
+        PlayPartilceEffect(particle4, location.gameObject.transform);
+    }
+
+    public void VatilityEffect(Transform location)
+    {
+        PlayPartilceEffect(particle5, location.gameObject.transform);
+    }
     private void PlayPartilceEffect(ParticleSystem particle, Transform pos)
     {
         if (particle != null)
@@ -73,7 +84,7 @@ public class ParticlesVFX : MonoBehaviour
         }
     }
 
-    public void PlayARandomParticleEffectAndAudioSFX(Transform pos)
+    public void PlayARandomParticleEffect(Transform pos)
     {
         if (particles != null)
         {
