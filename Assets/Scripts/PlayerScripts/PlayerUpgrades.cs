@@ -23,11 +23,29 @@ public class PlayerUpgrades : MonoBehaviour
     [SerializeField] Transform upgrade1Transform;
     [SerializeField] Vector2 vector2Upgrade1;
 
-    [Header("Managing projectile upgrade1 buff")]
+    [Header("Managing projectile upgrade2 buff")]
     [SerializeField] GameObject playerProjectilePrefab2;
     public bool upgrade2IsBought;
     [SerializeField] Transform upgrade2Transform;
     [SerializeField] Vector2 vector2Upgrade2;
+
+    [Header("Managing projectile upgrade3 buff")]
+    [SerializeField] GameObject playerProjectilePrefab3;
+    public bool upgrade3IsBought;
+    [SerializeField] Transform upgrade3Transform;
+    [SerializeField] Vector2 vector3Upgrade3;
+
+    [Header("Managing projectile upgrade3 buff")]
+    [SerializeField] GameObject playerProjectilePrefab4;
+    public bool upgrade4IsBought;
+    [SerializeField] Transform upgrade4Transform;
+    [SerializeField] Vector2 vector4Upgrade4;
+
+    [Header("Managing projectile upgrade4 buff")]
+    public bool upgrade5IsBought;
+
+    [Header("Managing projectile upgrade5 buff")]
+    public bool upgrade6IsBought;
 
     AudioManager audioManager;
     ParticlesVFX particlesVFX;
@@ -79,8 +97,10 @@ public class PlayerUpgrades : MonoBehaviour
             }
             Upgrade1();
             Upgrade2();
-            //Upgrade3();
-            //Upgrade4();
+            Upgrade3();
+            Upgrade4();
+            Upgrade5();
+            Upgrade6();
             Destroy(istance, projectileLifeTime);
 
             float timeToNextProjectile = Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
@@ -141,14 +161,14 @@ public class PlayerUpgrades : MonoBehaviour
     {
         if (upgrade2IsBought)
         {
-            GameObject istance1 = Instantiate(playerProjectilePrefab2, upgrade2Transform.transform.position, Quaternion.identity);
+            GameObject istance2 = Instantiate(playerProjectilePrefab2, upgrade2Transform.transform.position, Quaternion.identity);
 
-            Rigidbody2D rb1 = istance1.GetComponent<Rigidbody2D>();
-            if (istance1 != null)
+            Rigidbody2D rb1 = istance2.GetComponent<Rigidbody2D>();
+            if (istance2 != null)
             {
                 rb1.velocity = (vector2Upgrade2 * prjectileSpeed);
             }
-            Destroy(istance1, projectileLifeTime);
+            Destroy(istance2, projectileLifeTime);
         }
         else
         {
@@ -156,30 +176,80 @@ public class PlayerUpgrades : MonoBehaviour
         }
     }
 
+
     private void Upgrade3()
     {
-        GameObject istance2 = Instantiate(playerProjectilePrefab, transform.position, Quaternion.AngleAxis(50, new Vector3(0, 0, 1)));
-
-        Rigidbody2D rb2 = istance2.GetComponent<Rigidbody2D>();
-        if (istance2 != null)
+        if (upgrade3IsBought)
         {
-            rb2.velocity = (new Vector3(-1f, 0.5f, 0f) * prjectileSpeed);
-        }
-        Destroy(istance2, projectileLifeTime);
+            GameObject istance3 = Instantiate(playerProjectilePrefab3, upgrade3Transform.transform.position, Quaternion.identity);
 
+            Rigidbody2D rb1 = istance3.GetComponent<Rigidbody2D>();
+            if (istance3 != null)
+            {
+                rb1.velocity = (vector2Upgrade2 * prjectileSpeed);
+            }
+            Destroy(istance3, projectileLifeTime);
+        }
+        else
+        {
+            return;
+        }
     }
 
 
     private void Upgrade4()
     {
-        GameObject istance1 = Instantiate(playerProjectilePrefab, transform.position, Quaternion.AngleAxis(50, new Vector3(0, 0, -1)));
-
-        Rigidbody2D rb1 = istance1.GetComponent<Rigidbody2D>();
-        if (istance1 != null)
+        if (upgrade4IsBought)
         {
-            rb1.velocity = (new Vector3(1f, 0.5f, 0f) * prjectileSpeed);
+            GameObject istance4 = Instantiate(playerProjectilePrefab4, upgrade4Transform.transform.position, Quaternion.identity);
+
+            Rigidbody2D rb1 = istance4.GetComponent<Rigidbody2D>();
+            if (istance4 != null)
+            {
+                rb1.velocity = (vector2Upgrade2 * prjectileSpeed);
+            }
+            Destroy(istance4, projectileLifeTime);
         }
-        Destroy(istance1, projectileLifeTime);
+        else
+        {
+            return;
+        }
+    }
+
+
+    private void Upgrade5()
+    {
+        if (upgrade5IsBought)
+        {
+
+            GameObject istance5 = Instantiate(playerProjectilePrefab, transform.position, Quaternion.AngleAxis(50, new Vector3(0, 0, 1)));
+
+            Rigidbody2D rb2 = istance5.GetComponent<Rigidbody2D>();
+            if (istance5 != null)
+            {
+                rb2.velocity = (new Vector3(-1f, 0.5f, 0f) * prjectileSpeed);
+            }
+            Destroy(istance5, projectileLifeTime);
+        }
+        else { return; }
+
+    }
+
+
+    private void Upgrade6()
+    {
+        if (upgrade6IsBought)
+        {
+            GameObject istance6 = Instantiate(playerProjectilePrefab, transform.position, Quaternion.AngleAxis(50, new Vector3(0, 0, -1)));
+
+            Rigidbody2D rb1 = istance6.GetComponent<Rigidbody2D>();
+            if (istance6 != null)
+            {
+                rb1.velocity = (new Vector3(1f, 0.5f, 0f) * prjectileSpeed);
+            }
+            Destroy(istance6, projectileLifeTime);
+        }
+        else { return; }
 
     }
 }

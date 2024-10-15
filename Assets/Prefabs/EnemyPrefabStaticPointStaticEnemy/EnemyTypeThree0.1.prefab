@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
-  OnEnemyDeathAddScore: 10
+  OnEnemyDeathAddScore: 1
   earnGold: 1
   particlesVFX: {fileID: 0}
   scoreManager: {fileID: 0}
@@ -170,6 +170,9 @@ MonoBehaviour:
   heartTwo: {fileID: 0}
   heartThree: {fileID: 0}
   heartFour: {fileID: 0}
+  heartOne1: {fileID: 0}
+  heartTwo2: {fileID: 0}
+  heartThree3: {fileID: 0}
 --- !u!114 &7061260120655774529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,11 +201,14 @@ MonoBehaviour:
   playerProjectilePrefab: {fileID: 283085120605173543, guid: 058a3c1f78fb6844dbdf17dd2009af6b, type: 3}
   prjectileSpeed: 10
   projectileLifeTime: 5
-  baseFiringRate: 0.2
+  baseFiringRate: 2
   useAI: 1
   firingRateVariance: 0
-  miniumFiringRate: 0.1
+  miniumFiringRate: 1.5
   isFiring: 0
+  timeHasCollapsed: 0
+  increaseDifficlity: 0
+  time: 0
 --- !u!1 &2022554211781320030
 GameObject:
   m_ObjectHideFlags: 0

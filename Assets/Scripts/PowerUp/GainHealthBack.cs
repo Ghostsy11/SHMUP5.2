@@ -26,7 +26,8 @@ public class GainHealthBack : MonoBehaviour
             }
             else
             {
-                return;
+                Destroy(gameObject);
+
             }
 
             Debug.Log("Health Regained");

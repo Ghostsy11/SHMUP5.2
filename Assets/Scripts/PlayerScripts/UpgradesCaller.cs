@@ -37,6 +37,7 @@ public class UpgradesCaller : MonoBehaviour
 
     }
 
+
     public void UpgradeProjectileLeftSide()
     {
         audioManager.OnUpgradeUp();
@@ -49,4 +50,27 @@ public class UpgradesCaller : MonoBehaviour
         shipLevel3.SetActive(true);
     }
 
+    public void UpgradeProjectileLeftSideSecondPro()
+    {
+        audioManager.OnUpgradeUp();
+
+        playerUpgrades.upgrade3IsBought = true;
+
+        iconshipLevel3.SetActive(true);
+        iconshipLevel2.SetActive(false);
+        shipLevel2.SetActive(false);
+        shipLevel3.SetActive(true);
+    }
+
+    public void UpgradeProjectileRightSideSecondPro()
+    {
+        audioManager.OnUpgradeUp();
+
+        playerUpgrades.upgrade4IsBought = true;
+
+        iconshipLevel4.SetActive(true);
+        iconshipLevel3.SetActive(false);
+        shipLevel3.SetActive(false);
+        shipLevel4.SetActive(true);
+    }
 }

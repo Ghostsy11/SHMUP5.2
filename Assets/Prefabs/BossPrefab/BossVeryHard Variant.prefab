@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: Health
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 4211883151419878162, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: health
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211883151419878162, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: OnEnemyDeathAddScore
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4441328530877079159, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -74,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4621040019766352639, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: increaseDifficlity
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4621040019766352639, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: playerProjectilePrefab

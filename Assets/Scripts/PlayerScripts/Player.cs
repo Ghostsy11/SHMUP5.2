@@ -16,16 +16,12 @@ public class Player : MonoBehaviour
     [Tooltip("PlayerBounders")]
     [SerializeField] float paddingLeft;
     [SerializeField] float paddingRight;
-    [SerializeField] float paddingTop;
-    [SerializeField] float paddingBottom;
+    public float paddingTop;
+    public float paddingBottom;
 
     [Tooltip("Screen Bounders")]
     Vector2 minimalBounds;
     Vector2 maximalBounds;
-
-    [Tooltip("Player Bounders")]
-    [SerializeField] private float XaxisReset;
-    [SerializeField] private float YaxisReseZ;
 
     PlayerUpgrades playerUpgrade;
     Shooter shooter;
@@ -90,10 +86,7 @@ public class Player : MonoBehaviour
 
     // To Initalize player Bounders
 
-    public void PlayerBounders()
-    {
 
-    }
 
     // Inputs
     private void OnFire(InputValue value)
@@ -108,7 +101,6 @@ public class Player : MonoBehaviour
 
     private void OnPlayerFire(InputValue value)
     {
-        Debug.Log("Space Bot working");
         if (playerUpgrade != null)
         {
             playerUpgrade.isFiring = value.isPressed;

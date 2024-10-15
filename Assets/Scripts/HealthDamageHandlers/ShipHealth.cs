@@ -23,6 +23,11 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] AudioManager audioManager;
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] BoxCollider2D playerBoxCollider2D;
+    [SerializeField] MoveFreelyXY healthUpgrad;
+
+    [Header("Camera Shake")]
+    [SerializeField] bool applyCameraShakeForPlayer;
+    CameraShake cameraShake;
 
     [Header("Player Health Status after upgrade")]
     [SerializeField] GameObject heartOne;
@@ -39,12 +44,14 @@ public class ShipHealth : MonoBehaviour
         particlesVFX = FindObjectOfType<ParticlesVFX>();
         scoreManager = FindObjectOfType<ScoreManager>();
         audioManager = FindObjectOfType<AudioManager>();
+        cameraShake = Camera.main.GetComponent<CameraShake>();
 
     }
 
     private void Update()
     {
         PlayerNormalHealth();
+        PlayerHealthStatus();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -55,6 +62,7 @@ public class ShipHealth : MonoBehaviour
         {
             TakeDamage(damageDealer.GetDamage());
             particlesVFX.PlayOnHittingEnemy(gameObject.transform);
+            ShakeCamera();
             damageDealer.Hit();
         }
     }
@@ -127,6 +135,7 @@ public class ShipHealth : MonoBehaviour
     //Upgrade
     private void PlayerHealthStatus()
     {
+
         if (health <= 150 && gameObject.tag == "Player")
         {
             heartOne.SetActive(true);
@@ -141,6 +150,7 @@ public class ShipHealth : MonoBehaviour
             heartThree.SetActive(false);
             heartFour.SetActive(false);
         }
+
     }
 
     private IEnumerator LoadGameOverScene()
@@ -150,5 +160,14 @@ public class ShipHealth : MonoBehaviour
         StopCoroutine(LoadGameOverScene());
 
     }
+
+    private void ShakeCamera()
+    {
+        if (cameraShake != null && applyCameraShakeForPlayer)
+        {
+            cameraShake.Play();
+        }
+    }
+
 
 }

@@ -29,6 +29,10 @@ public class SpwaningGameAssets : MonoBehaviour
 
         _SpawnWait = Random.Range(_SpawnLeastWait, _SpawnMost);
 
+    }
+
+    private void IncraseDifficltiyOverAll()
+    {
         if (_gameObjects.Count != 4)
         {
             if (scoremanager.diffeclty == 3)
@@ -62,7 +66,7 @@ public class SpwaningGameAssets : MonoBehaviour
         while (!_Stop)
         {
             RandomEnemy = Random.Range(0, _gameObjects.Count);
-            Vector3 spwanPos = new Vector3(Random.Range(-_SpawnValue.x, _SpawnValue.x), _SpawnValue.y, Random.Range(-_SpawnValue.z, _SpawnValue.z));
+            Vector3 spwanPos = new Vector3(Random.Range(-_SpawnValue.x, _SpawnValue.x), Random.Range(-_SpawnValue.y, _SpawnValue.y), _SpawnValue.y);
             Instantiate(_gameObjects[RandomEnemy], spwanPos + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
             yield return new WaitForSeconds(_SpawnWait);
         }

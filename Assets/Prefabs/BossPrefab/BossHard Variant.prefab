@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: Health
       value: 240
       objectReference: {fileID: 0}
+    - target: {fileID: 5747877647871135365, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747877647871135365, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
+      propertyPath: OnEnemyDeathAddScore
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5804306791485833701, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
       propertyPath: damage
       value: 90
@@ -102,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177274145890048929, guid: 8fc9d07ef5a38e243aad99baade2dc36, type: 3}
       propertyPath: increaseDifficlity
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

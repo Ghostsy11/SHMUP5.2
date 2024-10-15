@@ -49,6 +49,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip pickUpAudioSort3;
     [SerializeField][Range(0f, 1f)] float pickUpVolumP3 = 1f;
 
+    [Header("Projectile Upgrade SFX")]
+    [SerializeField] AudioClip pickUpAudioSort4;
+    [SerializeField][Range(0f, 1f)] float pickUpVolumP4 = 1f;
+
     static AudioManager instance;
 
     private void Awake()
@@ -102,6 +106,11 @@ public class AudioManager : MonoBehaviour
     public void OnUpgradeUp()
     {
         PlayClip(pickUpAudioSort3, pickUpVolumP3);
+    }
+
+    public void OnProjectileUpgradeUp()
+    {
+        PlayClip(pickUpAudioSort4, pickUpVolumP4);
     }
 
     public void ShieldUp()

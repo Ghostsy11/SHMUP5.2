@@ -16,8 +16,9 @@ public class PauseGame : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         _MneuOpenCloseInput = playerInput.actions["MenuOpenClose"];
         pauseMenu.SetActive(false);
-    }
 
+
+    }
 
     private void Update()
     {

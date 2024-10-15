@@ -222,7 +222,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ebf98bdc7d22c46bfed634e3649238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 30
+  health: 120
+  OnEnemyDeathAddScore: 1
+  earnGold: 1
+  particlesVFX: {fileID: 0}
+  scoreManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
+  playerBoxCollider2D: {fileID: 0}
+  heartOne: {fileID: 0}
+  heartTwo: {fileID: 0}
+  heartThree: {fileID: 0}
+  heartFour: {fileID: 0}
+  heartOne1: {fileID: 0}
+  heartTwo2: {fileID: 0}
+  heartThree3: {fileID: 0}
 --- !u!114 &5896551821705049010
 MonoBehaviour:
   m_ObjectHideFlags: 0

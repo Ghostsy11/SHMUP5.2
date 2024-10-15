@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
 {
 
 
-
     [Tooltip("TutorialPanle refrenaces")]
     [SerializeField] GameObject tutorialPanle;
 
+    ScoreManager scoreManager;
+    private void Start()
+    {
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
 
     public void OpenTutorialPanel()
     {
@@ -28,10 +32,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOverResetEveryThing()
     {
+        scoreManager.ResetScore();
+        scoreManager.ResetGold();
         Debug.Log("Resetting EveryThing");
     }
     public void GameOverShowScene()
     {
+        scoreManager.GetScore();
         Debug.Log("Moveing to game over scene");
 
     }

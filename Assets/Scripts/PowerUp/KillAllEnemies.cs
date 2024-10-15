@@ -8,6 +8,9 @@ public class KillAllEnemies : MonoBehaviour
     [SerializeField] float timeToLoadTheSkill;
     [SerializeField] float timeRightNow;
     public bool readyToKillAll;
+    [SerializeField] float timePlayAudio;
+    [SerializeField] float timeRtNow;
+
     [SerializeField] GameObject iconWhenSkillIsReady;
     AudioManager audioManager;
     ParticlesVFX particlesVFX;
@@ -28,6 +31,7 @@ public class KillAllEnemies : MonoBehaviour
     private void Update()
     {
         LoadingTheSkill();
+        PlayAudioToNotifyThePlayer();
     }
 
 
@@ -47,6 +51,16 @@ public class KillAllEnemies : MonoBehaviour
         {
             iconWhenSkillIsReady.SetActive(true);
             readyToKillAll = true;
+        }
+    }
+
+    private void PlayAudioToNotifyThePlayer()
+    {
+        timeRtNow += Time.deltaTime;
+        if (timeRtNow >= timePlayAudio)
+        {
+            audioManager.ShieldUp();
+            timeRtNow = 0;
         }
     }
 

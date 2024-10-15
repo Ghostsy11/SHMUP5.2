@@ -23,6 +23,7 @@ public class FireRateSpeed : MonoBehaviour
             c = collision.gameObject.GetComponent<PlayerUpgrades>();
             sprite.enabled = false;
             StartCoroutine(c.TimeBuffManager());
+            Destroy(gameObject);
 
         }
     }

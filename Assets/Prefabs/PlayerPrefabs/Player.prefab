@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2339175129754313956
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +168,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3839195931459525317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8869517019206771270}
+  m_Layer: 7
+  m_Name: Upgrade (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8869517019206771270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839195931459525317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 713025832064836234}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6059016082597328096
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,11 +211,13 @@ GameObject:
   - component: {fileID: 7411278026588318458}
   - component: {fileID: 3456738933570968235}
   - component: {fileID: 8043293990740890103}
+  - component: {fileID: 5232479859811234116}
   - component: {fileID: 2259021066007638322}
   - component: {fileID: 3936106923700488424}
   - component: {fileID: 1649748590329585723}
   - component: {fileID: 1354038391106172781}
   - component: {fileID: 2083054954806386415}
+  - component: {fileID: 8656385340460839530}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -211,6 +244,8 @@ Transform:
   - {fileID: 4491378456586891060}
   - {fileID: 4294083146535110236}
   - {fileID: 6647638245747285873}
+  - {fileID: 1929395956089501856}
+  - {fileID: 8869517019206771270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7411278026588318458
@@ -257,8 +292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {x: 0, y: 0}
   playerSpeed: 5
-  paddingLeft: 0.5
-  paddingRight: 0.5
+  paddingLeft: 0
+  paddingRight: 0
   paddingTop: 8.32
   paddingBottom: 1.68
   init: {fileID: 203277053523497592, guid: f5aa957933938c649ae64d74d9a07d4f, type: 3}
@@ -307,6 +342,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5232479859811234116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059016082597328096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0513e360dbc16614a832899194b3be4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBoxColider: {fileID: 8043293990740890103}
 --- !u!50 &2259021066007638322
 Rigidbody2D:
   serializedVersion: 4
@@ -346,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ebf98bdc7d22c46bfed634e3649238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 90
+  health: 60
   OnEnemyDeathAddScore: 10
   earnGold: 1
   particlesVFX: {fileID: 0}
@@ -354,6 +402,8 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   playerSpriteRenderer: {fileID: 3345342572550707338}
   playerBoxCollider2D: {fileID: 8043293990740890103}
+  healthUpgrad: {fileID: 0}
+  applyCameraShakeForPlayer: 1
   heartOne: {fileID: 0}
   heartTwo: {fileID: 0}
   heartThree: {fileID: 0}
@@ -390,8 +440,11 @@ MonoBehaviour:
   timeToLoadTheSkill: 80
   timeRightNow: 0
   readyToShieldUp: 0
+  timeToPlayTheSkillSFX: 80
+  timeRightNowForSFX: 0
   iconWhenShieldReady: {fileID: 0}
   iconReadyState: {fileID: 0}
+  shieldTimer: {fileID: 0}
 --- !u!114 &2083054954806386415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,20 +460,51 @@ MonoBehaviour:
   playerProjectilePrefab: {fileID: 283085120605173543, guid: a94ea5c95d0dee24c90254bb19184dce, type: 3}
   prjectileSpeed: 10
   projectileLifeTime: 5
-  baseFiringRate: 0.2
+  baseFiringRate: 0.6
   firingRateVariance: 0
-  miniumFiringRate: 0.1
+  miniumFiringRate: 0.3
   isFiring: 0
   vitiltiyRenderer: {fileID: 0}
   timeHasPast: 10
-  playerProjectilePrefab1: {fileID: 3411866865687614530, guid: 06acf93173431704580ff7c29d9fbb04, type: 3}
+  playerProjectilePrefab1: {fileID: 283085120605173543, guid: a94ea5c95d0dee24c90254bb19184dce, type: 3}
   upgrade1IsBought: 0
   upgrade1Transform: {fileID: 4294083146535110236}
   vector2Upgrade1: {x: 0, y: 1}
-  playerProjectilePrefab2: {fileID: 3411866865687614530, guid: 06acf93173431704580ff7c29d9fbb04, type: 3}
+  playerProjectilePrefab2: {fileID: 283085120605173543, guid: a94ea5c95d0dee24c90254bb19184dce, type: 3}
   upgrade2IsBought: 0
   upgrade2Transform: {fileID: 6647638245747285873}
   vector2Upgrade2: {x: 0, y: 1}
+  playerProjectilePrefab3: {fileID: 3411866865687614530, guid: 06acf93173431704580ff7c29d9fbb04, type: 3}
+  upgrade3IsBought: 0
+  upgrade3Transform: {fileID: 1929395956089501856}
+  vector3Upgrade3: {x: 0, y: 1}
+  playerProjectilePrefab4: {fileID: 3411866865687614530, guid: 06acf93173431704580ff7c29d9fbb04, type: 3}
+  upgrade4IsBought: 0
+  upgrade4Transform: {fileID: 8869517019206771270}
+  vector4Upgrade4: {x: 0, y: 1}
+  Vaitlitylocation: {fileID: 0}
+--- !u!114 &8656385340460839530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059016082597328096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97411bbc6e7b7b745a66f33703713335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUpgrades: {fileID: 0}
+  audioManager: {fileID: 0}
+  shipLevel1: {fileID: 2505039026847387666}
+  shipLevel2: {fileID: 1387556044701747286}
+  shipLevel3: {fileID: 8824378022630235410}
+  shipLevel4: {fileID: 7293113729381730692}
+  iconshipLevel1: {fileID: 0}
+  iconshipLevel2: {fileID: 0}
+  iconshipLevel3: {fileID: 0}
+  iconshipLevel4: {fileID: 0}
 --- !u!1 &7293113729381730692
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4491378456586891060
 Transform:
   m_ObjectHideFlags: 0
@@ -505,6 +589,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7525940530766691912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929395956089501856}
+  m_Layer: 7
+  m_Name: Upgrade (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929395956089501856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525940530766691912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 713025832064836234}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7565374491564359687
 GameObject:
   m_ObjectHideFlags: 0

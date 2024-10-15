@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: Health
       value: 240
       objectReference: {fileID: 0}
+    - target: {fileID: 4211883151419878162, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211883151419878162, guid: b85ba825641e941488edf664873a354f, type: 3}
+      propertyPath: OnEnemyDeathAddScore
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4441328530877079159, guid: b85ba825641e941488edf664873a354f, type: 3}
       propertyPath: m_IsTrigger
       value: 1

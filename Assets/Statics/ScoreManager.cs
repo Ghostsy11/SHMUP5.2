@@ -57,7 +57,7 @@ public class ScoreManager : MonoBehaviour
 
     public void RemoveGold(int value)
     {
-        gold += value;
+        gold -= value;
         Mathf.Clamp(score, 0, int.MaxValue);
         //Debug.Log(score);
     }
