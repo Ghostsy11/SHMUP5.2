@@ -53,6 +53,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip pickUpAudioSort4;
     [SerializeField][Range(0f, 1f)] float pickUpVolumP4 = 1f;
 
+    [Header("Error Upgrade SFX")]
+    [SerializeField] AudioClip ErrorpAudioSort1;
+    [SerializeField][Range(0f, 1f)] float ErrorVolum1 = 1f;
+
+    [Header("Succes Upgrade SFX")]
+    [SerializeField] AudioClip SuccesAudioSort1;
+    [SerializeField][Range(0f, 1f)] float SuccesVolum1 = 1f;
+
     static AudioManager instance;
 
     private void Awake()
@@ -112,6 +120,16 @@ public class AudioManager : MonoBehaviour
     {
         PlayClip(pickUpAudioSort4, pickUpVolumP4);
     }
+    public void ErrorSFX()
+    {
+        PlayClip(ErrorpAudioSort1, ErrorVolum1);
+    }
+
+    public void SuccesAudioSort1SFX()
+    {
+        PlayClip(SuccesAudioSort1, SuccesVolum1);
+    }
+
 
     public void ShieldUp()
     {
@@ -121,6 +139,7 @@ public class AudioManager : MonoBehaviour
             audioSource.PlayOneShot(shieldUpAudio);
         }
     }
+
 
     private void PlayClip(AudioClip clip, float volume)
     {

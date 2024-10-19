@@ -1281,6 +1281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
   scoreText: {fileID: 1908276130}
+  goldText: {fileID: 0}
 --- !u!1 &509110008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,7 +2097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &834519245
 Transform:
   m_ObjectHideFlags: 0
@@ -7121,6 +7122,42 @@ PrefabInstance:
       propertyPath: heartThree3
       value: 
       objectReference: {fileID: 1665782554}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: maxXaxis
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: maxYaxis
+      value: 4.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: minXaxis
+      value: -3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: minYaxis
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: maxXShipLocation
+      value: 3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: maxYShipLocation
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: minXShipLocation
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: minYShipLocation
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232479859811234116, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
+      propertyPath: playerBoxColider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6059016082597328096, guid: 214f4901cebb7ec498ba60e27b4354f9, type: 3}
       propertyPath: m_Name
       value: Player

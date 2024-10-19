@@ -23,7 +23,7 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] AudioManager audioManager;
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] BoxCollider2D playerBoxCollider2D;
-    [SerializeField] MoveFreelyXY healthUpgrad;
+    [SerializeField] ShopMUpgrades healthUpgrad;
 
     [Header("Camera Shake")]
     [SerializeField] bool applyCameraShakeForPlayer;
@@ -104,6 +104,7 @@ public class ShipHealth : MonoBehaviour
 
     private void PlayerNormalHealth()
     {
+
         if (health >= 90 && gameObject.tag == "Player")
         {
 
@@ -128,6 +129,7 @@ public class ShipHealth : MonoBehaviour
             heartOne1.SetActive(false);
             heartTwo2.SetActive(false);
             heartThree3.SetActive(false);
+            heartFour.SetActive(false);
         }
 
     }
@@ -135,20 +137,28 @@ public class ShipHealth : MonoBehaviour
     //Upgrade
     private void PlayerHealthStatus()
     {
-
-        if (health <= 150 && gameObject.tag == "Player")
+        if (heartOne && heartTwo && heartThree && heartFour != null)
         {
-            heartOne.SetActive(true);
-            heartTwo.SetActive(true);
-            heartThree.SetActive(true);
-            heartFour.SetActive(true);
+
+
+            if (health <= 150 && gameObject.tag == "Player")
+            {
+                heartOne.SetActive(true);
+                heartTwo.SetActive(true);
+                heartThree.SetActive(true);
+                heartFour.SetActive(true);
+            }
+            else
+            {
+                heartOne.SetActive(false);
+                heartTwo.SetActive(false);
+                heartThree.SetActive(false);
+                heartFour.SetActive(false);
+            }
         }
         else
         {
-            heartOne.SetActive(false);
-            heartTwo.SetActive(false);
-            heartThree.SetActive(false);
-            heartFour.SetActive(false);
+            return;
         }
 
     }

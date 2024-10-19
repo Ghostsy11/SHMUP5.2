@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenCloseShop",
+                    "type": "Button",
+                    "id": "cae331ee-cae7-46f3-af07-06e3883a242f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -337,7 +346,7 @@
                 {
                     "name": "",
                     "id": "b2dbe098-c3ba-48aa-b16c-b4e72dee9d63",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -364,6 +373,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PlayerFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0369a7ca-ddc4-4472-90e6-d4c446724f01",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenCloseShop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

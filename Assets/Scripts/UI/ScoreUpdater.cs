@@ -12,21 +12,21 @@ public class ScoreUpdater : MonoBehaviour
     [Tooltip("Refreances managed via inspector")]
     [SerializeField] TextMeshProUGUI scoreText;
 
-    //[Tooltip("Refreances managed via inspector")]
-    //[SerializeField] TextMeshProUGUI goldText;
+    [Tooltip("Refreances managed via inspector")]
+    [SerializeField] TextMeshProUGUI goldText;
 
     private void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
 
         scoreText.text = scoreManager.GetScore().ToString();
-        //goldText.text = scoreManager.GetGold().ToString();
+        goldText.text = scoreManager.GetGold().ToString();
 
     }
 
     private void Update()
     {
         scoreText.text = scoreManager.GetScore().ToString();
-        //goldText.text = scoreManager.GetGold().ToString();
+        goldText.text = scoreManager.GetGold().ToString();
     }
 }

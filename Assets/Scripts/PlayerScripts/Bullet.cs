@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     ParticlesVFX particlesVFX;
     AudioManager audioManager;
+    public bool activitied;
     private void Awake()
     {
         particlesVFX = FindObjectOfType<ParticlesVFX>();
@@ -14,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && activitied == true)
         {
             audioManager.PlayRandomExplosionAudio();
             particlesVFX.PlayARandomParticleEffect(collision.transform);

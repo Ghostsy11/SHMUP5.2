@@ -4,19 +4,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PauseGame : MonoBehaviour
 {
-    public bool MneuOpenCloseInput { get; private set; }
-
+    [Header("Pause Menu")]
     private PlayerInput playerInput;
-    private InputAction _MneuOpenCloseInput;
-
+    public bool MneuOpenCloseInput { get; private set; }
     [SerializeField] private bool isPause;
+    private InputAction _MneuOpenCloseInput;
     [SerializeField] private GameObject pauseMenu;
+
+
+    [Header("Shop")]
+    private PlayerInput _playerInput;
+    public bool ShopOpenClose { get; private set; }
+    [SerializeField] private bool _ShopOpenClose;
+    private InputAction _ShopOpenCloseInput;
+    [SerializeField] private GameObject shop;
+
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         _MneuOpenCloseInput = playerInput.actions["MenuOpenClose"];
         pauseMenu.SetActive(false);
 
+        _playerInput = GetComponent<PlayerInput>();
+        _ShopOpenCloseInput = _playerInput.actions["OpenCloseShop"];
+        shop.SetActive(false);
 
     }
 
@@ -24,6 +36,9 @@ public class PauseGame : MonoBehaviour
     {
         MneuOpenCloseInput = _MneuOpenCloseInput.WasPressedThisFrame();
         PauseUnpause();
+
+        ShopOpenClose = _ShopOpenCloseInput.WasPressedThisFrame();
+        PauseUnpasueShop();
     }
 
 
@@ -56,5 +71,33 @@ public class PauseGame : MonoBehaviour
 
     }
 
+    private void PauseUnpasueShop()
+    {
+        if (ShopOpenClose)
+        {
+            if (!_ShopOpenClose)
+            {
+                OpenShop();
+            }
+            else
+            {
+                CloseShop();
+            }
+        }
+    }
+
+    private void OpenShop()
+    {
+        _ShopOpenClose = true;
+        Time.timeScale = 0f;
+        shop.SetActive(true);
+    }
+    private void CloseShop()
+    {
+        _ShopOpenClose = false;
+        shop.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
 
 }

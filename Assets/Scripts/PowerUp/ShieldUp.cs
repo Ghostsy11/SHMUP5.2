@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShieldUp : MonoBehaviour
 {
+
+    public float shieldUpTimer;
+
     [SerializeField] float timeToLoadTheSkill;
     [SerializeField] float timeRightNow;
 
@@ -74,7 +77,7 @@ public class ShieldUp : MonoBehaviour
             boxCollider.enabled = false;
             iconWhenShieldReady.SetActive(true);
             shieldTimer.Play();
-            yield return new WaitForSeconds(18f);
+            yield return new WaitForSeconds(shieldUpTimer);
             shieldTimer.Stop();
             iconWhenShieldReady.SetActive(false);
             boxCollider.enabled = true;
