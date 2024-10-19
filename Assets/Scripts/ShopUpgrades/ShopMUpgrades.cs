@@ -42,6 +42,13 @@ public class ShopMUpgrades : MonoBehaviour
     [SerializeField] int bulletUpgradeCost2;
     [SerializeField] int bulletUpgradeCost3;
     [SerializeField] int bulletUpgradeCost5_4;
+
+    [SerializeField] GameObject Ship1;
+    [SerializeField] GameObject Ship2;
+    [SerializeField] GameObject Ship3;
+    [SerializeField] GameObject Ship4;
+
+
     [SerializeField] Button bulletUpgradeButton;
 
     [Header("Player Speed Upgreade")]
@@ -51,6 +58,7 @@ public class ShopMUpgrades : MonoBehaviour
     [Header("Sheild Up Upgrade")]
     ShieldUp shieldUp;
     [SerializeField] int ShiedUpCost;
+    [SerializeField] Button shieldUpButton;
 
 
     [Header("Kill All Enemies Strike")]
@@ -164,6 +172,7 @@ public class ShopMUpgrades : MonoBehaviour
             {
                 scoreManager.RemoveGold(bulletUpgradeCost);
                 playerUpgrades.upgrade1IsBought = true;
+                Ship1.SetActive(true);
                 audioManager.OnUpgradeUp();
             }
             else if (playerUpgrades.upgrade1IsBought == true && playerUpgrades.upgrade2IsBought != true)
@@ -171,11 +180,15 @@ public class ShopMUpgrades : MonoBehaviour
                 scoreManager.RemoveGold(bulletUpgradeCost1);
                 playerUpgrades.upgrade2IsBought = true;
                 audioManager.OnUpgradeUp();
+                Ship1.SetActive(false);
+                Ship2.SetActive(true);
             }
             else if (playerUpgrades.upgrade1IsBought == true && playerUpgrades.upgrade2IsBought == true && playerUpgrades.upgrade3IsBought != true)
             {
                 scoreManager.RemoveGold(bulletUpgradeCost2);
                 playerUpgrades.upgrade3IsBought = true;
+                Ship2.SetActive(false);
+                Ship3.SetActive(true);
                 audioManager.OnUpgradeUp();
             }
             else if (playerUpgrades.upgrade1IsBought == true && playerUpgrades.upgrade2IsBought == true && playerUpgrades.upgrade3IsBought == true && playerUpgrades.upgrade4IsBought != true)
@@ -191,6 +204,8 @@ public class ShopMUpgrades : MonoBehaviour
                 scoreManager.RemoveGold(bulletUpgradeCost5_4);
                 playerUpgrades.upgrade5IsBought = true;
                 playerUpgrades.upgrade6IsBought = true;
+                Ship3.SetActive(false);
+                Ship4.SetActive(true);
                 audioManager.OnUpgradeUp();
                 bulletUpgradeButton.interactable = false;
             }
@@ -208,9 +223,13 @@ public class ShopMUpgrades : MonoBehaviour
         {
             audioManager.SuccesAudioSort1SFX();
             scoreManager.RemoveGold(ShiedUpCost);
-            if (shieldUp.enabled == true)
+            if (shieldUp.enabled == true && shieldUp.shieldUpTimer != 120f)
             {
                 shieldUp.shieldUpTimer += 1f;
+            }
+            else if (shieldUp.shieldUpTimer == 120f)
+            {
+                shieldUpButton.interactable = false;
             }
             else
             {
