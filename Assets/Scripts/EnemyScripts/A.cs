@@ -40,6 +40,7 @@ public class A : AttackTypes
 
     public override void AttackType()
     {
+
         enemyHealth = 120;
         attackName = "Moving To defend an area: in 50% height of the screen ";
 

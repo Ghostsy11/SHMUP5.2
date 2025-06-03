@@ -10,6 +10,8 @@ public class EnemyTimeSpwanMan : MonoBehaviour
     [SerializeField] float timeToActivietWaveSpwan3;
     [SerializeField] float timeToActivietWaveSpwan4;
     [SerializeField] float timeToActivietWaveSpwan5;
+
+
     [Header("Time at that moment")]
     [SerializeField] float timeRightNow1;
     [SerializeField] float timeRightNow2;
@@ -17,7 +19,7 @@ public class EnemyTimeSpwanMan : MonoBehaviour
     [SerializeField] float timeRightNow4;
     [SerializeField] float timeRightNow5;
 
-
+    [Header("Wave to be initialized")]
     [SerializeField] GameObject[] wavesGameObject;
 
     private void Update()

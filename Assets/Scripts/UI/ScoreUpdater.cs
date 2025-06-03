@@ -20,13 +20,19 @@ public class ScoreUpdater : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
 
         scoreText.text = scoreManager.GetScore().ToString();
+
+
         goldText.text = scoreManager.GetGold().ToString();
+
 
     }
 
     private void Update()
     {
         scoreText.text = scoreManager.GetScore().ToString();
+
+
         goldText.text = scoreManager.GetGold().ToString();
+
     }
 }

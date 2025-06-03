@@ -33,8 +33,6 @@ public class KillAllEnemies : MonoBehaviour
         LoadingTheSkill();
         PlayAudioToNotifyThePlayer();
     }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
@@ -42,8 +40,6 @@ public class KillAllEnemies : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
-
     private void LoadingTheSkill()
     {
         timeRightNow += Time.deltaTime;

@@ -11,6 +11,6 @@ public class SetSmallScreenSize : MonoBehaviour
 
     public void SetR()
     {
-        Screen.SetResolution(800, 1020, FullScreenMode.Windowed);
+        Screen.SetResolution(2560, 1440, FullScreenMode.FullScreenWindow);
     }
 }

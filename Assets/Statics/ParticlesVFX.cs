@@ -10,7 +10,6 @@ public class ParticlesVFX : MonoBehaviour
     [Header("On Enemy Death")]
     [SerializeField] ParticleSystem particle2;
 
-
     [Header("On Player Death")]
     [SerializeField] ParticleSystem particle3;
 
@@ -26,12 +25,10 @@ public class ParticlesVFX : MonoBehaviour
     [Header("Refrences")]
     static ParticlesVFX instance;
 
-
     private void Awake()
     {
         ManageSingleton();
     }
-
 
     private void ManageSingleton()
     {
@@ -46,8 +43,6 @@ public class ParticlesVFX : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
-
     public void PlayOnHittingEnemy(Transform location)
     {
         PlayPartilceEffect(particle1, location.gameObject.transform);
@@ -78,12 +73,8 @@ public class ParticlesVFX : MonoBehaviour
         {
             ParticleSystem VFX = Instantiate(particle, pos.gameObject.transform.position, Quaternion.identity);
             Destroy(VFX.gameObject, VFX.main.duration + VFX.main.startLifetime.constantMax);
-
-
-
         }
     }
-
     public void PlayARandomParticleEffect(Transform pos)
     {
         if (particles != null)
@@ -94,7 +85,5 @@ public class ParticlesVFX : MonoBehaviour
             Destroy(par, 5);
 
         }
-
     }
-
 }

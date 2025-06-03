@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaveEnemySpwner : MonoBehaviour
 {
-
     [Header("Waves Handler")]
     [SerializeField] List<WaveConfigSO> waveConfigs;
 
@@ -19,11 +18,7 @@ public class WaveEnemySpwner : MonoBehaviour
     [SerializeField] float timeVariance = 0.5f;
     [SerializeField] float minimumSpwanTime = 0.2f;
 
-
     public bool enemyWaveIsLooping;
-
-    // Start is called before the first frame update
-
     private void Awake()
     {
 
@@ -31,24 +26,13 @@ public class WaveEnemySpwner : MonoBehaviour
 
     }
 
-
-    public WaveConfigSO GetCurrentWaveSO()
-    {
-        return currentWave;
-    }
+    public WaveConfigSO GetCurrentWaveSO() { return currentWave; }
     public float GetRandomSpwanTimeBetweenEachWave()
     {
         float spwanTime = Random.Range(timeBetweenWaves - timeVariance, timeBetweenWaves + timeVariance);
 
         return Mathf.Clamp(timeVariance, minimumSpwanTime, float.MaxValue);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private IEnumerator SpwanEnemies()
     {
         do

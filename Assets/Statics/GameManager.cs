@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     private void StaticLoadSceneFunction(int indexOfScene)
     {
         SceneManager.LoadScene(indexOfScene);
+        Time.timeScale = 1.0f;
     }
 
 }

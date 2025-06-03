@@ -56,12 +56,11 @@ public class Player : MonoBehaviour
     }
 
 
-    // Player Input Function
+    // Player Input
     private void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
-        //For more explanation
-        //Debug.Log(playerInput);
+
     }
 
     // To calcalate the player movement
@@ -83,9 +82,6 @@ public class Player : MonoBehaviour
         minimalBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
         maximalBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
-
-    // To Initalize player Bounders
-
 
 
     // Inputs

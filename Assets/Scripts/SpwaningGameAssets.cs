@@ -68,6 +68,7 @@ public class SpwaningGameAssets : MonoBehaviour
             RandomEnemy = Random.Range(0, _gameObjects.Count);
             Vector3 spwanPos = new Vector3(Random.Range(-_SpawnValue.x, _SpawnValue.x), Random.Range(-_SpawnValue.y, _SpawnValue.y), _SpawnValue.y);
             Instantiate(_gameObjects[RandomEnemy], spwanPos + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+            Debug.Log("Spwaned");
             yield return new WaitForSeconds(_SpawnWait);
         }
 

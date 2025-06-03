@@ -29,11 +29,6 @@ public class AttackTypeOne : AttackTypes
 
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position + enemyOffset, enemySpeed * Time.deltaTime);
 
-
-
-
-        //transform.LookAt(target, Vector3.forward);
-
         Vector3 targetDirection = target.transform.position - transform.position;
 
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - rotationModifier;

@@ -11,7 +11,6 @@ public class PauseGame : MonoBehaviour
     private InputAction _MneuOpenCloseInput;
     [SerializeField] private GameObject pauseMenu;
 
-
     [Header("Shop")]
     private PlayerInput _playerInput;
     public bool ShopOpenClose { get; private set; }
@@ -29,7 +28,6 @@ public class PauseGame : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _ShopOpenCloseInput = _playerInput.actions["OpenCloseShop"];
         shop.SetActive(false);
-
     }
 
     private void Update()
@@ -40,7 +38,6 @@ public class PauseGame : MonoBehaviour
         ShopOpenClose = _ShopOpenCloseInput.WasPressedThisFrame();
         PauseUnpasueShop();
     }
-
 
     private void PauseUnpause()
     {
@@ -56,7 +53,6 @@ public class PauseGame : MonoBehaviour
             }
         }
     }
-
     private void Pause()
     {
         isPause = true;
@@ -68,7 +64,6 @@ public class PauseGame : MonoBehaviour
         isPause = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-
     }
 
     private void PauseUnpasueShop()
@@ -99,5 +94,23 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1f;
 
     }
+
+
+    //void CheckPause()
+    //{
+    //    if (_MneuOpenCloseInput.WasPressedThisFrame())
+    //    {
+    //        isPause = !isPause;
+    //    }
+    // >> in if statmeant
+    //    if (!isPause)
+    //    {
+    //        Pause();
+    //    }
+    //    else
+    //    {
+    //        UnPause();
+    //    }
+    //}
 
 }

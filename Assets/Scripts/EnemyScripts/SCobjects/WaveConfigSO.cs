@@ -39,9 +39,7 @@ public class WaveConfigSO : ScriptableObject
                 wayPoints.Add(child);
             }
         }
-
         return wayPoints;
-
     }
 
     public int GetGameObjCount()
@@ -59,7 +57,6 @@ public class WaveConfigSO : ScriptableObject
         return evemyMoveSpeed;
     }
 
-
     public float GetRandomSpwanTimeBetweenEachEnemy()
     {
         float spwanTime = Random.Range(timeBetweenEnemySpwans - spwanTimeVariance, timeBetweenEnemySpwans + spwanTimeVariance);
@@ -67,5 +64,4 @@ public class WaveConfigSO : ScriptableObject
         return Mathf.Clamp(spwanTimeVariance, minimumSpwanTime, float.MaxValue);
 
     }
-
 }

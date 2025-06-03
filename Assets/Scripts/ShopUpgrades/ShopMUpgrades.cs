@@ -27,8 +27,9 @@ public class ShopMUpgrades : MonoBehaviour
     [SerializeField] GameObject heartIcon;
 
 
-    [Header("Projectile - Speed - Upgrades")]
+    [Header("Projectile - Speed - Upgrades ref")]
     [SerializeField] PlayerUpgrades playerUpgrades;
+    [SerializeField] int fireRateUpgradeCost;
 
     [Header("Projectile Upgrade The Star Icon")]
     [SerializeField] GameObject bulletUpgradeIcon;
@@ -53,7 +54,7 @@ public class ShopMUpgrades : MonoBehaviour
 
     [Header("Player Speed Upgreade")]
     [SerializeField] int playerSpeedUpgredeCost;
-    [SerializeField] int fireRateUpgradeCost;
+    [SerializeField] GameObject playerSpeedUpgradeSetActive;
 
     [Header("Sheild Up Upgrade")]
     ShieldUp shieldUp;
@@ -78,6 +79,7 @@ public class ShopMUpgrades : MonoBehaviour
         playerScript = FindObjectOfType<Player>();
         playerUpgrades = FindObjectOfType<PlayerUpgrades>();
         shieldUp = FindObjectOfType<ShieldUp>();
+        playerSpeedUpgradeSetActive.SetActive(false);
     }
 
     private void Update()
@@ -101,7 +103,10 @@ public class ShopMUpgrades : MonoBehaviour
     {
         if (scoreManager.GetGold() > playerSpeedUpgredeCost)
         {
-
+            if (playerSpeedUpgradeSetActive != null)
+            {
+                playerSpeedUpgradeSetActive.SetActive(true);
+            }
             scoreManager.RemoveGold(playerSpeedUpgredeCost);
             playerScript.playerSpeed += 1f;
         }
@@ -142,7 +147,7 @@ public class ShopMUpgrades : MonoBehaviour
     {
         if (scoreManager.GetGold() >= fireRateUpgradeCost)
         {
-
+            scoreManager.RemoveGold(fireRateUpgradeCost);
             if (playerUpgrades.miniumFiringRate != 0.01f && playerUpgrades.baseFiringRate != 0.01f)
             {
                 if (playerUpgrades.miniumFiringRate != 0.01)
@@ -255,7 +260,7 @@ public class ShopMUpgrades : MonoBehaviour
     {
         if (scoreManager.GetGold() >= bulletDestorierCost)
         {
-
+            scoreManager.RemoveGold(bulletDestorierCost);
             bullets[0].activitied = true;
             bullets[1].activitied = true;
             bullets[2].activitied = true;

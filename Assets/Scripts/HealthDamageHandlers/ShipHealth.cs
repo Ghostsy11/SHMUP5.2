@@ -39,6 +39,7 @@ public class ShipHealth : MonoBehaviour
     [SerializeField] GameObject heartOne1;
     [SerializeField] GameObject heartTwo2;
     [SerializeField] GameObject heartThree3;
+    [SerializeField] GameObject fourthHeart;
     private void Awake()
     {
         particlesVFX = FindObjectOfType<ParticlesVFX>();
